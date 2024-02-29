@@ -70,10 +70,6 @@ Your task is to create a calculator app that demonstrates your understanding of 
 * Run `npm install` to install the libraries that the automated tests rely on.
 * Then, at any point, you can execute the test suite by running:
   * `npm test`
-    * This command will run the client and server test files, but when a test fails, the remaining tests in that file will be skipped.
-* If you'd like to run **all** of the tests in a given file, without skipping any, you can do:
-  * `npm run test:server`
-  * `npm run test:client`
 
 **For the Tests to Work Correctly**:
 * You will need to ensure your code meets these requirements:
