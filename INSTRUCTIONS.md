@@ -73,25 +73,6 @@ Your task is to create a calculator app that demonstrates your understanding of 
 
 **For the Tests to Work Correctly**:
 * You will need to ensure your code meets these requirements:
-  * <details>
-      <summary>Client-Side Specifications</summary>
-
-      * The calculator `<form>` must have this attribute:
-        * `data-testid="calculator"`
-      * Your `<input>`s must use this exact placeholder text:
-        * `placeholder="First Number"`
-        * `placeholder="Second Number"`
-      * All `<button>` text content is as specified:
-        * `+` `-` `*` `/` `=` `C`
-      * The most recent calculation result needs to be rendered somewhere inside the `<section>` element that has the `data-testid="recentResult"` attribute. For example, this would be just fine:
-        * ```html
-          <section data-testid="recentResult">
-            <h2>525</h2>
-          </section>
-          ```
-      * The list of calculation history needs to be rendered somewhere inside the `<section>` element that has the `data-testid="resultHistory"` attribute.
-    
-    </details>
 
   * <details>
     <summary>Server-Side Specifications</summary>
