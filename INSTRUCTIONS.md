@@ -114,7 +114,6 @@ Your task is to create a calculator app that demonstrates your understanding of 
 
 * Modify the calculator interface to look and behave like an actual calculator, as shown below.
   * *Interfaces that mirror real world objects are often more intuitive and self-explanatory for users.*
-  * **NOTE:** This will cause the client-side tests to fail! If you're feeling extra stretchy, see if you can figure out how to write new tests that verify your new interface. (This will be tricky!)
   <img src="./images/stretchGoal_interface.gif" alt="stretch goal calculator interface" width="400px">
 
 * Allow a user to click on an entry in the calculation history to re-run that calculation. This should display the answer on the calculator interface like a normal calculation.
