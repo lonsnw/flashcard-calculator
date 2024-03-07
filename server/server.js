@@ -15,7 +15,11 @@ let calculations = []
 // GET /calculations
 
 // POST /calculations
-
+app.post('/calculations', (req, res) => {
+  console.log('POST request made for /calculations');
+  console.log(req.body);
+  res.sendStatus(201);
+})
 
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:
 // 🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸
