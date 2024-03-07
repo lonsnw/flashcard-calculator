@@ -9,33 +9,33 @@
   <body>
     <h1>Server-Side Calculator</h1>
 
+    <section id="recentResult" data-testid="recentResult">
+      <!-- The most recent calculation result goes here. -->
+    </section>
+
     <form data-testid="calculator">
       <p id="equation"></p>
-      <button class="numButton" value="1" onClick="addVal('1')">1</button>
-      <button class="numButton" value="2" onClick="addVal('2')">2</button>
-      <button class="numButton" value="3" onClick="addVal('3')">3</button>
-      <button class="numButton" value="4" onClick="addVal('4')">4</button>
-      <button class="numButton" value="5" onClick="addVal('5')">5</button>
-      <button class="numButton" value="6" onClick="addVal('6')">6</button>
-      <button class="numButton" value="7" onClick="addVal('7')">7</button>
-      <button class="numButton" value="8" onClick="addVal('8')">8</button>
-      <button class="numButton" value="9" onClick="addVal('9')">9</button>
-      <button class="numButton" value="." onClick="addVal('.')">.</button>
-      <input placeholder="First Number" id="firstNum">
+      <button class="numButton" onClick="addVal('1')">1</button>
+      <button class="numButton" onClick="addVal('2')">2</button>
+      <button class="numButton" onClick="addVal('3')">3</button>
+      <button class="numButton" onClick="addVal('4')">4</button>
+      <button class="numButton" onClick="addVal('5')">5</button>
+      <button class="numButton" onClick="addVal('6')">6</button>
+      <button class="numButton" onClick="addVal('7')">7</button>
+      <button class="numButton" onClick="addVal('8')">8</button>
+      <button class="numButton" onClick="addVal('9')">9</button>
+      <button class="numButton" onClick="addVal('.')">.</button>
+      <!-- <input placeholder="First Number" id="firstNum"> -->
       <button class="operButton" value="+" onClick="addVal('+')">+</button>
       <button class="operButton" value="-" onClick="addVal('-')">-</button>
       <button class="operButton" value="*" onClick="addVal('*')">*</button>
       <button class="operButton" value="/" onClick="addVal('/')">/</button>
-      <input placeholder="Second Number" id="secondNum">
-      <button onClick="submitEquation(event)">=</button>
-      <button>C</button>
+      <!-- <input placeholder="Second Number" id="secondNum"> -->
+      <button class="resultButton" onClick="submitEquation(event)">=</button>
+      <button class="resultButton" onClick="clear(event)">C</button>
     </form>
 
-    <section data-testid="recentResult">
-      <!-- The most recent calculation result goes here. -->
-    </section>
-
-    <section data-testid="resultHistory">
+    <section id="resultHistory" data-testid="resultHistory">
       <!-- The list of calculation results goes here. -->
     </section>
   </body>
