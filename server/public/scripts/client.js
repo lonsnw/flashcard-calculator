@@ -2,11 +2,11 @@ console.log('client.js is sourced!');
 
 // establishing as global because i think i might need to use it multiple times
 const equationDiv = document.querySelector('#equation');
+const seeNumDiv = document.querySelector('#equation');
 let equationArray = [];
 
 // function to print to the DOM as you click
 function seeNums() {
-    let seeNumDiv = document.querySelector('#equation');
     seeNumDiv.innerHTML = `
     ${equationArray.join('')}`;
 }
@@ -32,7 +32,7 @@ function getCalcs() {
         calcsDiv.innerHTML = '';
         for(let calc of calcsFromServer) {
             calcsDiv.innerHTML += `
-            <div class="problem"><p class="numOne">${calc.numOne}</p>
+            <div class="problem"><div class="firstLine"><p class="numOne">${calc.numOne}</p></div>
             <div class="secondLine><p class="operator">${calc.operator}</p>
             <p class="numTwo">${calc.numTwo}</p></div>
             <h4 class="result">${calc.result}</h4>
@@ -78,6 +78,8 @@ function submitEquation(event) {
         numTwo: numTwo,
         operator: operator,
     };
+    // reset equation to clear before typing next equation
+    equationArray = [];
     axios.post('/calculations', equation).then((response) => {
         console.log(response);
         // adding function for displaying previous calculations
@@ -85,13 +87,11 @@ function submitEquation(event) {
     }).catch((error) => {
         console.log(error);
     });
-    // deleting seeNums because we're calculating it and will see it in #recentResult
-    let seeNumDiv = document.querySelector('#equation');
-    seeNumDiv.innerHTML = ''
 }
 
 function ce(event) {
     event.preventDefault();
     equationArray = [];
     console.log(equationArray);
+    seeNums();
 }

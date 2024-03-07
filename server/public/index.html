@@ -5,36 +5,39 @@
     <title>Server-Side Calculator</title>    
     <script defer src="scripts/axios.js"></script>
     <script defer src="scripts/client.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="styles/style.css">
   </head>
   <body>
-    <h1>Server-Side Calculator</h1>
-
+    <header>
+      <h1>Server-Side Calculator</h1>
+    </header>
     <section id="recentResult" data-testid="recentResult">
       <!-- The most recent calculation result goes here. -->
     </section>
 
+    <div id="buttons">
     <form data-testid="calculator">
       <p id="equation"></p>
       <button class="numButton" onClick="addVal('1')">1</button>
       <button class="numButton" onClick="addVal('2')">2</button>
       <button class="numButton" onClick="addVal('3')">3</button>
+      <button class="operButton" value="+" onClick="addVal('+')">+</button>
       <button class="numButton" onClick="addVal('4')">4</button>
       <button class="numButton" onClick="addVal('5')">5</button>
       <button class="numButton" onClick="addVal('6')">6</button>
+      <button class="operButton" value="-" onClick="addVal('-')">-</button>
       <button class="numButton" onClick="addVal('7')">7</button>
       <button class="numButton" onClick="addVal('8')">8</button>
       <button class="numButton" onClick="addVal('9')">9</button>
-      <button class="numButton" onClick="addVal('.')">.</button>
-      <!-- <input placeholder="First Number" id="firstNum"> -->
-      <button class="operButton" value="+" onClick="addVal('+')">+</button>
-      <button class="operButton" value="-" onClick="addVal('-')">-</button>
       <button class="operButton" value="*" onClick="addVal('*')">*</button>
-      <button class="operButton" value="/" onClick="addVal('/')">/</button>
-      <!-- <input placeholder="Second Number" id="secondNum"> -->
       <button class="resultButton" onClick="submitEquation(event)">=</button>
       <button class="resultButton" onClick="ce(event)">C</button>
+      <button class="numButton" onClick="addVal('.')">.</button>
+      <!-- <input placeholder="First Number" id="firstNum"> -->
+      <button class="operButton" value="/" onClick="addVal('/')">/</button>
+      <!-- <input placeholder="Second Number" id="secondNum"> -->
     </form>
-
+    </div>
     <section id="resultHistory" data-testid="resultHistory">
       <!-- The list of calculation results goes here. -->
     </section>
