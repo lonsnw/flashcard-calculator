@@ -4,16 +4,21 @@ console.log('client.js is sourced!');
 const equationDiv = document.querySelector('#equation');
 let equationArray = [];
 
+// function to print to the DOM as you click
+function seeNums() {
+    let seeNumDiv = document.querySelector('#equation');
+    seeNumDiv.innerHTML = `
+    ${equationArray.join('')}`;
+}
+
 // function to record the numbers entered using buttons
 // reference: https://www.quora.com/How-do-you-pass-a-button-value-to-a-JavaScript-function
 function addVal(buttonValue) {
     event.preventDefault();
     console.log('in addVal function');
-    // removing print to DOM because i'll do this with GET/POST
-    // equationDiv.innerHTML += `
-    // ${buttonValue}`;
     equationArray.push(buttonValue);
     console.log(equationArray);
+    seeNums();
 }
 
 // function to get all of my calculations for the history
@@ -30,7 +35,7 @@ function getCalcs() {
             <div class="problem"><p class="numOne">${calc.numOne}</p>
             <div class="secondLine><p class="operator">${calc.operator}</p>
             <p class="numTwo">${calc.numTwo}</p></div>
-            <p class="result">${calc.result}</p>
+            <h4 class="result">${calc.result}</h4>
             </div>`
         };
         let lastCalcDiv = document.querySelector('#recentResult');
@@ -39,7 +44,7 @@ function getCalcs() {
         <div class="problem"><p class="numOne">${calcsFromServer[calcsFromServer.length-1].numOne}</p>
         <div class="secondLine><p class="operator">${calcsFromServer[calcsFromServer.length-1].operator}</p>
         <p class="numTwo">${calcsFromServer[calcsFromServer.length-1].numTwo}</p></div>
-        <p class="result">${calcsFromServer[calcsFromServer.length-1].result}</p>
+        <h4 class="result">${calcsFromServer[calcsFromServer.length-1].result}</h4>
         </div>`;
     }).catch((error) => {
         console.log(error);
@@ -80,5 +85,13 @@ function submitEquation(event) {
     }).catch((error) => {
         console.log(error);
     });
+    // deleting seeNums because we're calculating it and will see it in #recentResult
+    let seeNumDiv = document.querySelector('#equation');
+    seeNumDiv.innerHTML = ''
 }
 
+function ce(event) {
+    event.preventDefault();
+    equationArray = [];
+    console.log(equationArray);
+}
