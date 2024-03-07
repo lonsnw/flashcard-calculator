@@ -52,8 +52,8 @@ function submitEquation(event) {
     let equateOperator = equateNoValue.filter(n => n);
     console.log('logging split', equateValues, equateOperator);
     // assigning variable names to pass numbers into the object
-    let numOne = equateValues[0];
-    let numTwo = equateValues[1];
+    let numOne = +equateValues[0];
+    let numTwo = +equateValues[1];
     let operator = equateOperator[0];
     console.log(numOne, operator, numTwo);
     // packaging for server
@@ -61,7 +61,6 @@ function submitEquation(event) {
         numOne: numOne,
         numTwo: numTwo,
         operator: operator,
-        result: result,
     };
     axios.post('/calculations', equation).then((response) => {
         console.log(response);

@@ -18,6 +18,33 @@ let calculations = []
 app.post('/calculations', (req, res) => {
   console.log('POST request made for /calculations');
   console.log(req.body);
+  function doMath(numOne, numTwo, operator) {
+    if(operator === '+'){
+      result = numOne + numTwo
+    }
+    else if(operator === '-'){
+      result = numOne - numTwo
+    }
+    else if(operator === '*'){
+      result = numOne * numTwo
+    }
+    else if(operator === '/'){
+      result = numOne / numTwo
+    }
+    return result
+  }
+  doMath(req.body.numOne, req.body.numTwo, req.body.operator);
+  console.log(result);
+  // add result to the object
+  let equation = {
+    numOne: req.body.numOne,
+    numTwo: req.body.numTwo, 
+    operator: req.body.operator,
+    result: result
+  };
+  // add the object to the calculations array
+  calculations.push(equation);
+  console.log(calculations);
   res.sendStatus(201);
 })
 
