@@ -10,11 +10,22 @@
     <h1>Server-Side Calculator</h1>
 
     <form data-testid="calculator">
+      <input placeholder="Calculate this" id="equation">
+      <button class="numButton" value="1" onClick="addVal(event)">1</button>
+      <button class="numButton" value="2" onClick="addVal(event)">2</button>
+      <button class="numButton" value="3" onClick="addVal(event)">3</button>
+      <button class="numButton" value="4" onClick="addVal(event)">4</button>
+      <button class="numButton" value="5" onClick="addVal(event)">5</button>
+      <button class="numButton" value="6" onClick="addVal(event)">6</button>
+      <button class="numButton" value="7" onClick="addVal(event)">7</button>
+      <button class="numButton" value="8" onClick="addVal(event)">8</button>
+      <button class="numButton" value="9" onClick="addVal(event)">9</button>
+      <button class="numButton" value="." onClick="addVal(event)">.</button>
       <input placeholder="First Number">
-      <button>+</button>
-      <button>-</button>
-      <button>*</button>
-      <button>/</button>
+      <button class="operButton" value="+" onClick="addVal(event)">+</button>
+      <button class="operButton" value="-" onClick="addVal(event)">-</button>
+      <button class="operButton" value="*" onClick="addVal(event)">*</button>
+      <button class="operButton" value="/" onClick="addVal(event)">/</button>
       <input placeholder="Second Number">
       <button>=</button>
       <button>C</button>
