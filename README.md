@@ -28,6 +28,10 @@ Calculator after using the "C" button:
 <br />
 <image src=server/public/images/calc-after-clear.png width=80%>
 <br />
+Calculator after submitting an incomplete equation:
+<br />
+<image src=server/public/images/calc-and-alert.png width=80%>
+<br />
 
 ### Prerequisites
 
