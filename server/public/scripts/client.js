@@ -103,12 +103,37 @@ function ce(event) {
     seeNums();
 }
 
-// i can't get this to call for the right card/pull actual values instead of code.
+// i’ve trued a bunch of versions of this and get nothing
+// tried using document.querySelector and it would pull code instead of the values or just nothing
 // function rerun(event) {
 //     // assign variables to existing problem
-//     let numOne = document.querySelector('#numOne').value;
-//     let numTwo = document.querySelector('#numTwo').value;
+//     let numOne = event.target.document.querySelector('#numOne').innerText;
+//     let numTwo = document.querySelector('#numTwo').innerText;
 //     let operator = document.querySelector('#operator').value;
+//     console.log(numOne, operator, numTwo);
+// }
+// tried using jQuery and was told that $ is not recognized
+// function rerun() {
+//     // assign variables to existing problem
+//     let numOne = $(this).attr(‘numOne’);
+//     let numTwo = $(this).attr(‘numTwo’);
+//     let operator = $(this).attr(‘operator’);
+//     console.log(numOne, operator, numTwo);
+// }
+// tried this mess below and just nothing on this one
+// function rerun(event) {
+//     // assign variables to existing problem
+//     let target = event.target;
+//     if (target.matches(‘#numOne’)) {
+//         let numOne = target.innerHTML;
+//     }
+//     else if (target.matches(‘#numTwo’)) {
+//         let numTwo = target.innerHTML;
+//     }
+//     else if (target.matches(‘#operator’)) {
+//         let operator = target.innerHTML;
+//     }
+//     return numOne, operator, numTwo;
 //     console.log(numOne, operator, numTwo);
 // }
 
