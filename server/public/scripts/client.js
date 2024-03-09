@@ -111,3 +111,11 @@ function ce(event) {
 //     let operator = document.querySelector('#operator').value;
 //     console.log(numOne, operator, numTwo);
 // }
+
+function clearHistory(event) {
+    axios.delete('/calculations').then((response) => {
+        console.log('Deleted calculation history');
+    }).catch((error) => {
+        console.error(error);
+    });
+}

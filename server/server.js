@@ -51,6 +51,13 @@ app.post('/calculations', (req, res) => {
   calculations.push(equation);
   console.log(calculations);
   res.sendStatus(201);
+});
+
+// DELETE request
+app.delete('/calculations', (req, res) => {
+  console.log(req.params);
+  calculations = [];
+  res.sendStatus(201);
 })
 
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:
