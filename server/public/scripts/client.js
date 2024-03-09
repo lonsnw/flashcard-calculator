@@ -32,11 +32,10 @@ function getCalcs() {
         calcsDiv.innerHTML = '';
         for(let calc of calcsFromServer) {
             calcsDiv.innerHTML += `
-            <div class="flashcard">
-                <div class="problem"><p>${calc.numOne}</p>
-                <p>${calc.operator} ${calc.numTwo}</p>
-                <hr>
-                <h4>${calc.result.toFixed(4)}</h4>
+            <div class="flashcard" onClick="rerun(event)">
+                <div class="problem"><p id="numOne">${calc.numOne}</p>
+                <p id="operator" style="margin:0;display:inline;float:left">${calc.operator}</p> <p id="numTwo" style="margin:0;display:inline;float:right">${calc.numTwo}</p>
+                <br /><hr><h4>${calc.result.toFixed(1)}</h4>
             </div>`
         };
         let lastCalcDiv = document.querySelector('#recentResult');
@@ -44,9 +43,8 @@ function getCalcs() {
         lastCalcDiv.innerHTML = `
         <div class="flashcard">
             <div class="problem"><p>${calcsFromServer[calcsFromServer.length-1].numOne}</p>
-            <p>${calcsFromServer[calcsFromServer.length-1].operator} ${calcsFromServer[calcsFromServer.length-1].numTwo}</p>
-            <hr>
-            <h4>${(calcsFromServer[calcsFromServer.length-1].result).toFixed(4)}</h4>
+            <p id="operator" style="margin:0;display:inline;float:left">${calcsFromServer[calcsFromServer.length-1].operator}</p> <p id="numTwo" style="margin:0;display:inline;float:right"> ${calcsFromServer[calcsFromServer.length-1].numTwo}</p>
+            <br /><hr><h4>${(calcsFromServer[calcsFromServer.length-1].result).toFixed(1)}</h4>
         </div>`;
     }).catch((error) => {
         console.log(error);
@@ -82,13 +80,20 @@ function submitEquation(event) {
     };
     // reset equation to clear before typing next equation
     equationArray = [];
-    axios.post('/calculations', equation).then((response) => {
-        console.log(response);
-        // adding function for displaying previous calculations
-        getCalcs();
-    }).catch((error) => {
-        console.log(error);
-    });
+    // i'm using equateValues[i] here because using numOne and numTwo misses instances where
+    // a null value (aka empty entry) is force converted to 0 by the +
+    if(equateValues[0] === '' || equateValues[1] === '' || equateOperator[0] === undefined) {
+        alert('Your equation is incomplete! Please try again.')
+    }   
+    else {
+        axios.post('/calculations', equation).then((response) => {
+            console.log(response);
+            // adding function for displaying previous calculations
+            getCalcs();
+        }).catch((error) => {
+            console.log(error);
+        });
+    };
 }
 
 function ce(event) {
@@ -97,3 +102,12 @@ function ce(event) {
     console.log(equationArray);
     seeNums();
 }
+
+// i can't get this to call for the right card/pull actual values instead of code.
+// function rerun(event) {
+//     // assign variables to existing problem
+//     let numOne = document.querySelector('#numOne').value;
+//     let numTwo = document.querySelector('#numTwo').value;
+//     let operator = document.querySelector('#operator').value;
+//     console.log(numOne, operator, numTwo);
+// }
