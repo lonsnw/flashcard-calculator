@@ -32,19 +32,21 @@ function getCalcs() {
         calcsDiv.innerHTML = '';
         for(let calc of calcsFromServer) {
             calcsDiv.innerHTML += `
-            <div class="problem"><div class="firstLine"><p class="numOne">${calc.numOne}</p></div>
-            <div class="secondLine><p class="operator">${calc.operator}</p>
-            <p class="numTwo">${calc.numTwo}</p></div>
-            <h4 class="result">${calc.result}</h4>
+            <div class="flashcard">
+                <div class="problem"><p>${calc.numOne}</p>
+                <p>${calc.operator} ${calc.numTwo}</p>
+                <hr>
+                <h4>${calc.result.toFixed(4)}</h4>
             </div>`
         };
         let lastCalcDiv = document.querySelector('#recentResult');
         // add latest calc to this
         lastCalcDiv.innerHTML = `
-        <div class="problem"><p class="numOne">${calcsFromServer[calcsFromServer.length-1].numOne}</p>
-        <div class="secondLine><p class="operator">${calcsFromServer[calcsFromServer.length-1].operator}</p>
-        <p class="numTwo">${calcsFromServer[calcsFromServer.length-1].numTwo}</p></div>
-        <h4 class="result">${calcsFromServer[calcsFromServer.length-1].result}</h4>
+        <div class="flashcard">
+            <div class="problem"><p>${calcsFromServer[calcsFromServer.length-1].numOne}</p>
+            <p>${calcsFromServer[calcsFromServer.length-1].operator} ${calcsFromServer[calcsFromServer.length-1].numTwo}</p>
+            <hr>
+            <h4>${(calcsFromServer[calcsFromServer.length-1].result).toFixed(4)}</h4>
         </div>`;
     }).catch((error) => {
         console.log(error);

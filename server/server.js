@@ -35,7 +35,8 @@ app.post('/calculations', (req, res) => {
     else if(operator === '/'){
       result = numOne / numTwo
     }
-    return result
+    // adding parseFloat to see if that helps with the errors from the auto-test.
+    return parseFloat(result)
   }
   doMath(req.body.numOne, req.body.numTwo, req.body.operator);
   console.log(result);
